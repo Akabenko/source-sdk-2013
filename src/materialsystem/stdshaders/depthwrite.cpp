@@ -212,15 +212,9 @@ BEGIN_VS_SHADER_FLAGS( DepthWrite, "Help for Depth Write", SHADER_NOT_EDITABLE )
 			}
 #endif
 
-			Vector4D vParms;
 
 			// set up arbitrary far planes, as the real ones are too far ( 30,000 )
 //			pShaderAPI->SetPSNearAndFarZ( 1 );
-			vParms.x = 7.0f;		// arbitrary near
-			vParms.y = 4000.0f;		// arbitrary far 
-			vParms.z = 0.0f;
-			vParms.w = 0.0f;
-			pShaderAPI->SetPixelShaderConstant( 1, vParms.Base(), 2 );
 
 			if ( nTreeSwayMode != 0 )
 			{
