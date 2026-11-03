@@ -4,10 +4,6 @@
 
 const float g_AlphaThreshold : register( c0 );
 
-const float2 g_vNearFarPlanes	: register( c1 );
-	#define g_flNearPlane			g_vNearFarPlanes.x
-	#define g_flFarPlane			g_vNearFarPlanes.y
-
 struct PS_INPUT
 {
 #if ALPHACLIP
@@ -34,7 +30,7 @@ float4 main( PS_INPUT i ) : COLOR
 
 #if ( COLOR_DEPTH == 1 )
 
-	return float4( i.vWorldPos_projPosZ.w / g_flFarPlane, 0.0, 0.0, 1.0 );
+	return float4( i.vWorldPos_projPosZ.z / i.vWorldPos_projPosZ.w, 0.0, 0.0, 1.0 );
 
 #else
 
